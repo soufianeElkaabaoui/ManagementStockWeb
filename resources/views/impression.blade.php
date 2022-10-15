@@ -42,7 +42,7 @@ use Illuminate\Support\Str;
                                   <tr>
                                     <th scope="col">CLIENT</th>
                                     <th scope="col">DATE</th>
-                                    <th scope="col">FACTUR</th>
+                                    <th scope="col">{{ isset($devie) ? 'DEVIS' : (isset($facture) ? 'FACTURE' : '---') }}</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -107,7 +107,7 @@ use Illuminate\Support\Str;
                                 <tbody>
                                       <tr>
                                         <th rowspan="4" style="width: 50%;" class="">
-                                           <textarea class="text-center fs-7" cols="30" rows="3" style="width: 100%; border:none;"></textarea>
+                                            {{$price_total_letter . ($price_total_letter == "un" ? " dh" : " dhs")}}
                                         </th>
                                         <tr class="table-secondary">
                                             <th>TOTAL HT</th>
@@ -122,7 +122,7 @@ use Illuminate\Support\Str;
                                             <td>{{ ($price_total * 20) / 100 + $price_total }}</td>
                                         </tr>
                                       </tr>
-                                      
+
                                 </tbody>
                               </table>
                         </div>
