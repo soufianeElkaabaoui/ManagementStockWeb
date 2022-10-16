@@ -28,7 +28,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'auth.login')->name('login-view')->middleware('auth.check');
 Route::middleware(CheckAuthenticationGlobal::class)->group(function () {
-    
     Route::get('/produit/byBonCommande/{bon_commande_id}', [ProduitController::class, 'getByBonCommandeId']);
     Route::resources(
         [
@@ -42,7 +41,6 @@ Route::middleware(CheckAuthenticationGlobal::class)->group(function () {
     );
     Route::post('convertToInvoice', [ListDeviesController::class, 'convertDevisToInvoice'])->name('covertToInvoice');
     Route::get('/dashboard/{filter_value}', [DashboardController::class, 'index'])->name('dashboard');
-    
     Route::get('ajax-autocomplete-search', [Select2SearchController::class,'selectSearchClient']);
     Route::get('ajax-autocomplete-search-produit', [Select2SearchController::class,'selectSearchProduit']);
     Route::get('/dashboard/clients/credit', [DashboardController::class, 'clientsWithCredit'])->name('clients-credit');
