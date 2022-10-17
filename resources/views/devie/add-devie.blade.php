@@ -26,14 +26,18 @@
                 @csrf
                 <div class="card-header bg-white py-4">
                     <div class="row">
-                        <div class="col-xs-12 col-md-4">
+                        {{-- <div class="col-xs-12 col-md-4">
                             <input form="frm_add_devie" class="form-control form-control-sm" placeholder="N° Devis"
                                 type="text" id="devie_num" name="devie_num" value="{{ old('devie_num') }}">
-                        </div>
-                        <div class="col-xs-12 col-md-8">
+                        </div> --}}
+                        <div class="col-xs-12 col-md-8 w-100">
                             <div class="input-group">
                                 <select form="frm_add_devie" class="livesearchclient form-control" id="client"
                                     name="client"></select>
+                                    <button class="btn btn-secondary btn-sm w-30 ms-8" type="button" id="btn_add_produit">{{--<i
+                                        class="bi bi-plus"></i>--}}Ajouter Commande</button>
+                                <button class="btn btn-secondary btn-sm d-none" type="button" id="btn_update_produit">{{--<i
+                                        class="bi bi-pencil-square"></i>--}}Modifier Commande</button>
                             </div>
                         </div>
                     </div>
@@ -54,15 +58,7 @@
                             <div class="input-group">
                                 <input class="form-control form-control-sm" placeholder="Prix Total" type="text"
                                     id="produit_price_total">
-                                <button class="btn btn-secondary btn-sm" type="button" id="btn_add_produit"><i
-                                        class="bi bi-plus"></i></button>
-                                <button class="btn btn-secondary btn-sm d-none" type="button" id="btn_update_produit"><i
-                                        class="bi bi-pencil-square"></i></button>
                             </div>
-                        </div>
-                        <div class="col-xs-12 mt-2">
-                            <button type="submit" name="btnAdd" id="btnAdd"
-                                class="btn btn-primary btn-sm w-100">Ajouter</button>
                         </div>
                     </div>
                 </div>
@@ -75,6 +71,7 @@
                         <th>N°</th>
                         <th>REF</th>
                         <th>Libelle</th>
+                        <th>Unité</th>
                         <th>Prix U</th>
                         <th>Quantité en stock</th>
                         <th>Quantité</th>
@@ -109,6 +106,10 @@
                 @endforeach
             </ul>
         @endif
+    </div>
+    <div class="col-xs-12 mt-2">
+        <button type="submit" name="btnAdd" id="btnAdd"
+            class="btn btn-primary btn-sm w-100">Confirmer la facture</button>
     </div>
 @endsection
 

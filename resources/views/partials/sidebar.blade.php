@@ -128,6 +128,12 @@
                                 </ul>
                             </div>
                         </li>
+                        <!-- Nav item -->
+                        <li class="nav-item">
+                            <a class="nav-link has-arrow " href="/configuration">
+                                <i data-feather="settings" class="nav-icon icon-xs me-2"></i>
+                            </a>
+                        </li>
                     </ul>
 
                 </div>
