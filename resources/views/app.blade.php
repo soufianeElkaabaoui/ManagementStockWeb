@@ -35,7 +35,7 @@
 
         @hasSection('dashboard')
           <!-- Dashboard -->
-          <div class="bg-primary pt-10 pb-21"></div>
+          <div class="bg-warning pt-10 pb-21"></div>
           <div class="container-fluid mt-n22 px-6">
               @yield('dashboard')
           </div>

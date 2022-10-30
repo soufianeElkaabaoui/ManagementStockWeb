@@ -27,12 +27,14 @@
         <div class="card h100">
             <div class="card-header bg-white py-4">
                 <div class="row">
-                    <div class="col-xs-12 col-md-4">
-                        <input class="form-control form-control-sm" placeholder="N° facture" type="text" id="facture_num" name="facture_num" value="{{ old('facture_num') }}">
-                    </div>
-                    <div class="col-xs-12 col-md-8">
+                    {{-- <div class="col-xs-12 col-md-4">
+                        <input class="form-control form-control-sm mb-3" placeholder="N° facture" type="text" id="facture_num" name="facture_num" disabled value="{{ old('facture_num') }}">
+                    </div> --}}
+                    <div class="col-xs-12 col-md-8 w-100">
                         <div class="input-group">
                             <select class="livesearchclient form-control" id="client" name="client"></select>
+                            <button class="btn btn-secondary btn-sm w-30 ms-8" type="button" id="btn_add_produit">{{--<i class="bi bi-plus"></i>--}}Ajouter Commande</button>
+                            <button class="btn btn-secondary btn-sm w-30 ms-8 d-none" type="button" id="btn_update_produit">{{--<i class="bi bi-pencil-square"></i>--}}Modifier Commande</button>                
                         </div>
                     </div>
                 </div>
@@ -51,34 +53,30 @@
                     <div class="col-xs-12 col-md-4">
                         <div class="input-group">
                             <input class="form-control form-control-sm" placeholder="Prix Total" type="text" id="produit_price_total">
-                            <button class="btn btn-secondary btn-sm" type="button" id="btn_add_produit"><i class="bi bi-plus"></i></button>
-                            <button class="btn btn-secondary btn-sm d-none" type="button" id="btn_update_produit"><i class="bi bi-pencil-square"></i></button>
                         </div>
-                    </div>
-                    <div class="col-xs-12 mt-2">
-                        <button type="submit" name="btnAdd" id="btnAdd" class="btn btn-primary btn-sm w-100">Ajouter</button>
                     </div>
                 </div>
             </div>
         </form>
-            <div class="table-responsive mx-2 mb-3">
-                <table class="table text-nowrap mb-0">
-                    <thead class="table-light">
-                      <tr>
+        <div class="table-responsive mx-2 mb-3">
+            <table class="table text-nowrap w-100 mb-0">
+                <thead class="table-light w-100">
+                    <tr>
                         <th>N°</th>
                         <th>REF</th>
                         <th>Libelle</th>
+                        <th>Unité</th>
                         <th>Prix U</th>
                         <th>Quantité en stock</th>
                         <th>Quantité</th>
                         <th>Prix T</th>
                         <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbl_tbody_produits">
-
-                    </tbody>
-                    <tfoot id="tbl_tfoot_price_global">
+                    </tr>
+                </thead>
+                <tbody id="tbl_tbody_produits">
+                    
+                </tbody>
+                <tfoot id="tbl_tfoot_price_global">
                         <tr>
                             <td colspan="2">Prix total HT</td>
                             <td colspan="7" id="prix_total_facture_HT">...</td>
@@ -91,19 +89,22 @@
                 </table>
             </div>
             @if (session('status'))
-                <div class="alert alert-success mx-2" role="alert">
-                    {{ session('status', '') }}
-                </div>
+            <div class="alert alert-success mx-2" role="alert">
+                {{ session('status', '') }}
+            </div>
             @endif
             @if ($errors->any())
-                <ul class="list-group mx-2">
-                    @foreach ($errors->all() as $error)
-                        <li class="list-group-item list-group-item-danger mb-2">{{ $error }}</li>
-                    @endforeach
+            <ul class="list-group mx-2">
+                @foreach ($errors->all() as $error)
+                <li class="list-group-item list-group-item-danger mb-2">{{ $error }}</li>
+                @endforeach
                 </ul>
             @endif
         </div>
     </div>
+</div>
+<div class="col-xs-12 mt-2">
+    <button type="submit" name="btnAdd" id="btnAdd" class="btn btn-primary btn-sm w-100">Confirmer la facture</button>
 </div>
 @endsection
 

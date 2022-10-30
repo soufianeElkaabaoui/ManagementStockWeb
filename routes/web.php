@@ -49,3 +49,4 @@ Route::middleware(CheckAuthenticationGlobal::class)->group(function () {
     Route::get('ajax-autocomplete-search-fournisseur', [Select2SearchController::class,'selectSearchFournisseur']);
 });
 Auth::routes();
+Route::view('/configuration','configuration');
